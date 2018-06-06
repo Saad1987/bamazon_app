@@ -1,6 +1,7 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
 var Table = require('cli-table');
+const cTable = require('console.table');
 
 var connection = mysql.createConnection({
   host: "localhost",
@@ -72,9 +73,11 @@ function viewProductSalesD() {
       table.push(
         [res[i].department_id, res[i].department_name, res[i].over_head_costs, res[i].product_sales, res[i].total_profit]
 
+
       );
 
     }
+    // console.log(console.table(res)); This is line is there if we want to console log the table directly 
     console.log(table.toString());
     options();
   });
